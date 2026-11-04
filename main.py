@@ -1,32 +1,44 @@
 from cliente import Cliente
-from servicios.sala import ReservaSala
-from reserva import Reserva
 
-try:
+clientes = []
 
-    cliente = Cliente(
-        "12345678",
-        "Joan Prieto",
-        "joan@gmail.com"
-    )
+while True:
 
-    sala = ReservaSala(
-        "S01",
-        "Sala Principal",
-        50000
-    )
+    print("\n=== SOFTWARE FJ ===")
+    print("1. Registrar cliente")
+    print("2. Ver clientes")
+    print("3. Salir")
 
-    reserva = Reserva(
-        cliente,
-        sala,
-        3
-    )
+    opcion = input("Seleccione una opción: ")
 
-    reserva.confirmar()
+    if opcion == "1":
 
-    costo = reserva.procesar()
+        identificacion = input("Identificación: ")
+        nombre = input("Nombre: ")
+        correo = input("Correo: ")
 
-    print("Costo total:", costo)
+        cliente = Cliente(
+            identificacion,
+            nombre,
+            correo
+        )
 
-except Exception as e:
-    print("Error:", e)
+        clientes.append(cliente)
+
+        print("Cliente registrado correctamente")
+
+    elif opcion == "2":
+
+        for cliente in clientes:
+            print(
+                cliente.identificacion,
+                cliente.nombre,
+                cliente.correo
+            )
+
+    elif opcion == "3":
+        print("Hasta luego")
+        break
+
+    else:
+        print("Opción inválida")
