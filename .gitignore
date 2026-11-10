@@ -8,3 +8,20 @@ __pycache__/logger.cpython-314.pyc
 __pycache__/reserva.cpython-314.pyc
 __pycache__/sala.cpython-314.pyc
 __pycache__/servicio.cpython-314.pyc
+
+# Python
+__pycache__/
+servicios/
+*.py[cod]
+*$py.class
+
+# Logs
+logs/*.log
+
+# VS Code
+.vscode/
+
+# Entornos virtuales
+venv/
+.env
+
