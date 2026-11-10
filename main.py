@@ -24,9 +24,8 @@ while True:
     print("3. Crear reserva")
     print("4. Consultar reservas")
     print("5. Procesar reserva")
-    print("6. Cancelar reserva")
-    print("7. Ver servicios")
-    print("8. Salir")
+    print("6. Cancelar reserva")  
+    print("7. Salir")
 
     opcion = input("\nSeleccione una opción: ")
 
@@ -222,7 +221,7 @@ while True:
 
     
 
-    elif opcion == "8":
+    elif opcion == "7":
         print("\nGracias por utilizar SOFTWARE FJ.")
         break
 
