@@ -1,1 +1,10 @@
 servicios/__pycache__/sala.cpython-314.pyc
+__pycache__/cliente.cpython-314.pyc
+__pycache__/entidad.cpython-314.pyc
+__pycache__/asesoria.cpython-314.pyc
+__pycache__/equipo.cpython-314.pyc
+__pycache__/excepciones.cpython-314.pyc
+__pycache__/logger.cpython-314.pyc
+__pycache__/reserva.cpython-314.pyc
+__pycache__/sala.cpython-314.pyc
+__pycache__/servicio.cpython-314.pyc
