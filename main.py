@@ -43,10 +43,17 @@ while True:
             )
 
             clientes.append(cliente)
+            registrar_log(
+            f"Cliente registrado: {cliente.nombre}"
+            )
 
             print("\n✅ Cliente registrado correctamente")
 
         except Exception as e:
+            registrar_log(
+                f"Error al registrar cliente: {e}"
+            )
+            
             print(f"\n❌ Error: {e}")
 
     elif opcion == "2":
@@ -202,6 +209,9 @@ while True:
             ) - 1
 
             reservas[indice].cancelar()
+            registrar_log(
+            f"Reserva cancelada por {reservas[indice].cliente.nombre}"
+            )
 
             registrar_log(
                 "Reserva cancelada"
