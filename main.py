@@ -1,7 +1,18 @@
 from cliente import Cliente
+from sala import ReservaSala
+from equipo import AlquilerEquipo
+from asesoria import AsesoriaEspecializada
+from reserva import Reserva
+from logger import registrar_log
 
 clientes = []
 reservas = []
+
+servicios = [
+    ReservaSala("S01", "Sala de Reuniones", 50000),
+    AlquilerEquipo("E01", "Video Beam", 30000),
+    AsesoriaEspecializada("A01", "Consultoría TI", 80000)
+]
 
 while True:
 
@@ -54,22 +65,162 @@ while True:
                 )
 
     elif opcion == "3":
-        print("\nFunción pendiente: Crear reserva")
+        try:
+            if not clientes:
+                print("\nNo existen clientes registrados.")
+                continue
+
+            print("\n===== CLIENTES =====")
+
+            for i, cliente in enumerate(clientes):
+                print(f"{i+1}. {cliente.nombre}")
+
+            indice_cliente = int(
+                input("Seleccione cliente: ")
+            ) - 1
+
+            cliente = clientes[indice_cliente]
+
+            print("\n===== SERVICIOS =====")
+
+            for i, servicio in enumerate(servicios):
+                print(
+                    f"{i+1}. {servicio.describir_servicio()}"
+                )
+
+            indice_servicio = int(
+                input("Seleccione servicio: ")
+            ) - 1
+
+            servicio = servicios[indice_servicio]
+
+            duracion = int(
+                input("Ingrese duración: ")
+            )
+
+            reserva = Reserva(
+                cliente,
+                servicio,
+                duracion
+            )
+
+            reservas.append(reserva)
+
+            registrar_log(
+                f"Reserva creada para {cliente.nombre}"
+            )
+
+            print("\n✅ Reserva registrada.")
+
+        except Exception as e:
+            registrar_log(
+                f"Error al crear reserva: {e}"
+            )
+
+            print(f"\n❌ {e}")
 
     elif opcion == "4":
-        print("\nFunción pendiente: Consultar reservas")
+
+        if not reservas:
+
+            print("\nNo existen reservas.")
+
+        else:
+
+            print("\n===== RESERVAS =====")
+
+            for i, reserva in enumerate(reservas):
+
+                print(
+                    f"{i+1}. "
+                    f"{reserva.cliente.nombre} | "
+                    f"{reserva.servicio.nombre} | "
+                    f"{reserva.estado}"
+                )
 
     elif opcion == "5":
-        print("\nFunción pendiente: Procesar reserva")
+
+        try:
+
+            if not reservas:
+
+                print("\nNo existen reservas.")
+                continue
+
+            for i, reserva in enumerate(reservas):
+
+                print(
+                    f"{i+1}. "
+                    f"{reserva.cliente.nombre} - "
+                    f"{reserva.estado}"
+                )
+
+            indice = int(
+                input("Seleccione reserva: ")
+            ) - 1
+
+            costo = reservas[indice].procesar()
+
+            registrar_log(
+                f"Reserva procesada. Valor: {costo}"
+            )
+
+            print(
+                f"\n✅ Reserva procesada."
+            )
+
+            print(
+                f"Costo total: ${costo:,}"
+            )
+
+        except Exception as e:
+
+            registrar_log(
+                f"Error procesando reserva: {e}"
+            )
+
+            print(f"\n❌ {e}")
 
     elif opcion == "6":
-        print("\nFunción pendiente: Cancelar reserva")
 
-    elif opcion == "7":
-        print("\n===== SERVICIOS =====")
-        print("1. Reserva de Sala")
-        print("2. Alquiler de Equipo")
-        print("3. Asesoría Especializada")
+        try:
+
+            if not reservas:
+
+                print("\nNo existen reservas.")
+                continue
+
+            for i, reserva in enumerate(reservas):
+
+                print(
+                    f"{i+1}. "
+                    f"{reserva.cliente.nombre} - "
+                    f"{reserva.estado}"
+                )
+
+            indice = int(
+                input("Seleccione reserva: ")
+            ) - 1
+
+            reservas[indice].cancelar()
+
+            registrar_log(
+                "Reserva cancelada"
+            )
+
+            print(
+                "\n✅ Reserva cancelada."
+            )
+
+        except Exception as e:
+
+            registrar_log(
+                f"Error cancelando reserva: {e}"
+            )
+
+            print(f"\n❌ {e}")
+
+    
 
     elif opcion == "8":
         print("\nGracias por utilizar SOFTWARE FJ.")
