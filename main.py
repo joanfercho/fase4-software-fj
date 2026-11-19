@@ -22,7 +22,7 @@ servicios = [
 # Ciclo principal que mantiene activo el menú hasta elegir "Salir".
 while True:
 
-    # Encabezado y opciones principales del menú.
+    # Encabezado y opciones disponobles para interactuar con el sistema de reservas
     print("\n==================================")
     print("         SOFTWARE FJ")
     print("==================================")
