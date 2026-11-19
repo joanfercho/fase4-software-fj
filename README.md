@@ -31,3 +31,4 @@ Proyecto desarrollado en **Python** orientado a objetos para la gestión de clie
 
 * Joan Fernando Prieto Lebro
 * Gina Marcela Sánchez Rodriguez
+* YUDY MARCELA AVILA MORALES
