@@ -5,17 +5,21 @@ from asesoria import AsesoriaEspecializada
 from reserva import Reserva
 from logger import registrar_log
 
+# Datos almacenados durante la ejecución del programa.
 clientes = []
 reservas = []
 
+# Catálogo de servicios disponibles para crear reservas.
 servicios = [
     ReservaSala("S01", "Sala de Reuniones", 50000),
     AlquilerEquipo("E01", "Video Beam", 30000),
     AsesoriaEspecializada("A01", "Consultoría TI", 80000)
 ]
 
+# Ciclo principal que mantiene activo el menú hasta elegir "Salir".
 while True:
 
+    # Encabezado y opciones principales del menú.
     print("\n==================================")
     print("         SOFTWARE FJ")
     print("==================================")
@@ -29,6 +33,7 @@ while True:
 
     opcion = input("\nSeleccione una opción: ")
 
+    # Registrar un nuevo cliente y guardar la operación en el log.
     if opcion == "1":
 
         try:
@@ -44,7 +49,7 @@ while True:
 
             clientes.append(cliente)
             registrar_log(
-            f"Cliente registrado: {cliente.nombre}"
+                f"Cliente registrado: {cliente.nombre}"
             )
 
             print("\n✅ Cliente registrado correctamente")
@@ -56,6 +61,7 @@ while True:
             
             print(f"\n❌ Error: {e}")
 
+    # Mostrar todos los clientes registrados.
     elif opcion == "2":
 
         if not clientes:
@@ -70,6 +76,7 @@ while True:
                     f"{cliente.correo}"
                 )
 
+    # Crear una reserva seleccionando un cliente y un servicio.
     elif opcion == "3":
         try:
             if not clientes:
@@ -125,6 +132,7 @@ while True:
 
             print(f"\n❌ {e}")
 
+    # Consultar el estado y los datos de las reservas existentes.
     elif opcion == "4":
 
         if not reservas:
@@ -144,6 +152,7 @@ while True:
                     f"{reserva.estado}"
                 )
 
+    # Procesar una reserva seleccionada y calcular su costo.
     elif opcion == "5":
 
         try:
@@ -187,6 +196,7 @@ while True:
 
             print(f"\n❌ {e}")
 
+    # Cancelar una reserva seleccionada.
     elif opcion == "6":
 
         try:
@@ -210,7 +220,7 @@ while True:
 
             reservas[indice].cancelar()
             registrar_log(
-            f"Reserva cancelada por {reservas[indice].cliente.nombre}"
+                f"Reserva cancelada por {reservas[indice].cliente.nombre}"
             )
 
             registrar_log(
@@ -231,9 +241,11 @@ while True:
 
     
 
+    # Finalizar la ejecución del programa.
     elif opcion == "7":
         print("\nGracias por utilizar SOFTWARE FJ.")
         break
 
+    # Informar cuando el usuario ingresa una opción no válida.
     else:
         print("\n❌ Opción inválida.")
