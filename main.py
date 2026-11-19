@@ -1,3 +1,6 @@
+
+# Descripción: Punto de entrada principal del sistema SOFTWARE FJ: gestiona el menú de clientes y reservas.
+
 from cliente import Cliente
 from sala import ReservaSala
 from equipo import AlquilerEquipo
