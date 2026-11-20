@@ -17,6 +17,7 @@ servicios/
 
 # Logs
 logs/*.log
+logs/eventos.log
 
 # VS Code
 .vscode/
