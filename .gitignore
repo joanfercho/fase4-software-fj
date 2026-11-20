@@ -16,6 +16,7 @@ servicios/
 *$py.class
 
 # Logs
+logs/*
 logs/*.log
 logs/eventos.log
 
@@ -26,3 +27,5 @@ logs/eventos.log
 venv/
 .env
 
+logs/eventos.log
+logs/eventos.log
